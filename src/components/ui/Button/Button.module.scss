@@ -9,6 +9,10 @@
   &.variable {
     &-accent {
       background-color: $c-orange;
+
+      .icon {
+        color: $c-white;
+      }
     }
   }
 
