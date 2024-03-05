@@ -1,0 +1,89 @@
+@mixin create-font($fz, $lh: 1.2, $fw: 400) {
+  font-size: $fz;
+  line-height: $lh;
+  font-weight: $fw;
+}
+
+@mixin font-h-80-400 {
+  @include create-font(80px);
+}
+
+@mixin font-h-64-500 {
+  @include create-font(80px, 1.12, 500);
+}
+
+@mixin font-h-40-500 {
+  @include create-font(40px, $fw: 500);
+}
+
+@mixin font-h-40-400 {
+  @include create-font(40px);
+}
+
+@mixin font-h-32-500 {
+  @include create-font(32px, 1.25, 500);
+}
+
+@mixin font-h-32-400 {
+  @include create-font(32px, 1.25);
+}
+
+@mixin font-h-28-500 {
+  @include create-font(28px, 1.29, 500);
+}
+
+@mixin font-h-28-400 {
+  @include create-font(28px, 1.29);
+}
+
+@mixin font-h-24-500 {
+  @include create-font(24px, 1.33, 500);
+}
+
+@mixin font-h-24-400 {
+  @include create-font(24px, 1.33);
+}
+
+@mixin font-h-20-500 {
+  @include create-font(20px, 1.4, 500);
+}
+
+@mixin font-h-20-400 {
+  @include create-font(20px, 1.4);
+}
+
+@mixin font-b-18-400 {
+  @include create-font(18px, 1.56);
+}
+
+@mixin font-b-18-500 {
+  @include create-font(18px, 1.56, 500);
+}
+
+@mixin font-b-18-600 {
+  @include create-font(18px, 1.56, 600);
+}
+
+@mixin font-b-16-400 {
+  @include create-font(16px, 1.5);
+}
+
+@mixin font-b-16-500 {
+  @include create-font(16px, 1.5, 500);
+}
+
+@mixin font-b-16-600 {
+  @include create-font(16px, 1.5, 600);
+}
+
+@mixin font-b-14-400 {
+  @include create-font(14px, 1.57);
+}
+
+@mixin font-b-14-500 {
+  @include create-font(14px, 1.57, 500);
+}
+
+@mixin font-b-14-600 {
+  @include create-font(14px, 1.57, 600);
+}

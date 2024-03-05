@@ -1,0 +1,25 @@
+.uiButton {
+  display: inline-flex;
+  align-items: center;
+  outline: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  // COLORS
+  &.variable {
+    &-accent {
+      background-color: $c-orange;
+    }
+  }
+
+  // SIZES
+  &.size {
+    &-xl {
+      height: 64px;
+      padding: 0 24px;
+      border-radius: $radius-xl;
+      color: $c-white;
+      @include font-b-18-400;
+    }
+  }
+}
