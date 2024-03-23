@@ -1,0 +1,13 @@
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin transition($property, $function: ease-in-out, $duration: 0.15s) {
+  will-change: unquote($property);
+  transition: all $duration $function;
+  transition-property: unquote($property);
+}

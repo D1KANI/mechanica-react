@@ -1,10 +1,11 @@
 "use client";
 
+import { clsx } from "clsx";
+
 import { ButtonSize, ButtonVariable } from "@/types/kit";
 import Link from "next/link";
 
-import styles from "./Button.module.scss";
-import Icon from "../Icon/TruckIcon";
+import classes from "./Button.module.scss";
 
 interface Props {
   label: string;
@@ -14,7 +15,9 @@ interface Props {
   target?: string;
   size?: ButtonSize;
   variable?: ButtonVariable;
+  disabled?: boolean;
   className?: string;
+  onClick?: () => void;
 }
 
 export default function Button({
@@ -26,25 +29,35 @@ export default function Button({
   className,
   leftIcon,
   rightIcon,
+  disabled,
+  onClick,
 }: Props) {
-  const classes = `${styles.uiButton} ${styles[`size-${size}`]}
-                  ${styles[`variable-${variable}`]} ${className}`;
+  const styles = clsx(
+    classes.uiButton,
+    classes[`size-${size}`],
+    classes[`variable-${variable}`],
+    { [classes["is-disabled"]]: disabled }
+  );
 
   const content = (
     <>
-      {leftIcon ?? undefined}
+      {leftIcon && <div className={classes.icon}>{leftIcon}</div>}
       {label}
+      {rightIcon && <div className={classes.icon}>{rightIcon}</div>}
     </>
   );
 
+  if (href) {
+    return (
+      <Link href={href} target={target} className={styles} onClick={onClick}>
+        {content}
+      </Link>
+    );
+  }
+
   return (
-    <>
-      {!!href && (
-        <Link href={href} target={target} className={styles.icon}>
-          {content}
-        </Link>
-      )}
-      {!href && <button className={classes}>{content}</button>}
-    </>
+    <button className={styles} onClick={onClick}>
+      {content}
+    </button>
   );
 }
