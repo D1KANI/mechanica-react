@@ -1,14 +1,15 @@
+"use client";
+
 import { ButtonSize, ButtonVariable } from "@/types/kit";
 import Link from "next/link";
-import Image from "next/image";
 
 import styles from "./Button.module.scss";
-import useDynamicSVGImport from "@/hooks/useDynamicSVGImport";
+import Icon from "../Icon/TruckIcon";
 
 interface Props {
   label: string;
-  leftIconName?: string;
-  rightIconName?: string;
+  leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
   href?: string;
   target?: string;
   size?: ButtonSize;
@@ -23,22 +24,15 @@ export default function Button({
   size = ButtonSize.XL,
   variable = ButtonVariable.ACCENT,
   className,
-  leftIconName,
-  rightIconName,
+  leftIcon,
+  rightIcon,
 }: Props) {
   const classes = `${styles.uiButton} ${styles[`size-${size}`]}
                   ${styles[`variable-${variable}`]} ${className}`;
 
   const content = (
     <>
-      {leftIconName && (
-        <Image
-          src={`/images/${leftIconName}.svg`}
-          alt={leftIconName}
-          width={32}
-          height={32}
-        />
-      )}
+      {leftIcon ?? undefined}
       {label}
     </>
   );
