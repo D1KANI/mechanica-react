@@ -1,11 +1,9 @@
 "use client";
 
-import { clsx } from "clsx";
-
 import { ButtonSize, ButtonVariable } from "@/types/kit";
 import Link from "next/link";
 
-import classes from "./Button.module.scss";
+import styled, { css } from "styled-components";
 
 interface Props {
   label: string;
@@ -20,45 +18,75 @@ interface Props {
   onClick?: () => void;
 }
 
-export default function Button({
-  label,
-  href,
-  target = "_self",
-  size = ButtonSize.XL,
-  variable = ButtonVariable.ACCENT,
-  className,
-  leftIcon,
-  rightIcon,
-  disabled,
-  onClick,
-}: Props) {
-  const styles = clsx(
-    classes.uiButton,
-    classes[`size-${size}`],
-    classes[`variable-${variable}`],
-    { [classes["is-disabled"]]: disabled },
-    className
-  );
+const StyledButton = styled.div<Props>`
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  outline: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  ${({ theme }) =>
+    theme.utils.transition(["background", "box-shadow", "border-color"])}
 
-  const content = (
-    <>
-      {leftIcon && <div className={classes.icon}>{leftIcon}</div>}
-      {label}
-      {rightIcon && <div className={classes.icon}>{rightIcon}</div>}
-    </>
-  );
+  .icon {
+    flex-shrink: 0;
 
-  if (href) {
-    return (
-      <Link href={href} target={target} className={styles} onClick={onClick}>
-        {content}
-      </Link>
-    );
+    svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 
+  ${(props) => {
+    switch (props.variable) {
+      case ButtonVariable.ACCENT:
+        return css``;
+      case ButtonVariable.BLACK:
+        return css``;
+      case ButtonVariable.WHITE:
+        return css``;
+      case ButtonVariable.STROKE:
+        return css``;
+      case ButtonVariable.GREY:
+        return css``;
+    }
+  }}
+
+  ${(props) => {
+    switch (props.size) {
+      case ButtonSize.XL:
+        return css``;
+      case ButtonSize.L:
+        return css``;
+      case ButtonSize.M:
+        return css``;
+      case ButtonSize.S:
+        return css``;
+    }
+  }}
+
+  ${(props) => {
+    if (props.disabled) {
+      return css``;
+    }
+  }}
+`;
+
+export const Button = ({
+  variable = ButtonVariable.ACCENT,
+  size = ButtonSize.XL,
+  ...props
+}: Props) => {
   return (
-    <button className={styles} onClick={onClick}>
-      {content}
-    </button>
+    <StyledButton
+      as={props.href ? Link : "button"}
+      type={!props.href ? "button" : undefined}
+      {...{ ...props, variable, size }}
+    >
+      {props.leftIcon && <div className="icon">{props.leftIcon}</div>}
+      {props.label}
+      {props.rightIcon && <div className="icon">{props.rightIcon}</div>}
+    </StyledButton>
   );
-}
+};

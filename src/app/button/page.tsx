@@ -3,9 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ButtonSize, ButtonVariable } from "@/types/kit";
-import Button from "@/components/ui/Button/Button";
-import TruckIcon from "@/icons/truck.svg";
-import classes from "./page.module.scss";
+import { Button } from "@/components/ui/Button/Button";
+import TruckIcon from "@/assets/icons/truck.svg";
+import styled from "styled-components";
+
+const StyledGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding-top: 20px;
+  padding-bottom: 20px;
+`;
 
 export default function ButtonPage() {
   const [options, setOptions] = useState({
@@ -27,12 +34,11 @@ export default function ButtonPage() {
   };
 
   return (
-    <main className={`container ${classes.main}`}>
+    <main className="container">
       <Link href="/">На главную</Link>
 
-      <div className={classes.grid}>
+      <StyledGrid>
         <Button
-          className={classes.button}
           label={`Button ${options.size}`}
           size={options.size}
           variable={options.variable}
@@ -41,9 +47,9 @@ export default function ButtonPage() {
           disabled={options.disabled}
           onClick={() => alert("click")}
         />
-      </div>
+      </StyledGrid>
 
-      <div className={classes.grid}>
+      <StyledGrid>
         {Object.values(ButtonSize).map((size) => (
           <Button
             key={size}
@@ -51,9 +57,9 @@ export default function ButtonPage() {
             onClick={() => changeOptions({ size: size as ButtonSize })}
           />
         ))}
-      </div>
+      </StyledGrid>
 
-      <div className={classes.grid}>
+      <StyledGrid>
         {Object.values(ButtonVariable).map((variable) => (
           <Button
             key={variable}
@@ -63,14 +69,14 @@ export default function ButtonPage() {
             }
           />
         ))}
-      </div>
+      </StyledGrid>
 
-      <div className={classes.grid}>
+      <StyledGrid>
         <Button
           label="Change disabled"
           onClick={() => changeOptions({ disabled: !options.disabled })}
         />
-      </div>
+      </StyledGrid>
     </main>
   );
 }

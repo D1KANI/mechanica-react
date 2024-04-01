@@ -1,4 +1,4 @@
-import Button from "@/components/ui/Button/Button";
+import { Button } from "@/components/ui/Button/Button";
 import classes from "./page.module.scss";
 
 export default function Home() {
