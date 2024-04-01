@@ -6,7 +6,7 @@
   border: 1px solid transparent;
   cursor: pointer;
   white-space: nowrap;
-  @include transition("background, box-shadow");
+  @include transition("background, box-shadow, border-color");
 
   .icon {
     flex-shrink: 0;
@@ -30,11 +30,91 @@
       }
 
       &:active:not(.is-disabled) {
+        background-color: $c-orange;
         box-shadow: inset 0 8px 8px 0 rgba(0, 0, 0, 0.1);
       }
 
       .icon {
         color: $c-white;
+      }
+    }
+
+    &-black {
+      background-color: $c-greyscale-1000;
+      color: $c-white;
+
+      @include hover {
+        &:not(.is-disabled) {
+          background-color: $c-greyscale-800;
+        }
+      }
+
+      &:active:not(.is-disabled) {
+        background-color: $c-greyscale-900;
+      }
+
+      .icon {
+        color: $c-white;
+      }
+    }
+
+    &-white {
+      background-color: $c-white;
+      color: $c-greyscale-1000;
+
+      @include hover {
+        &:not(.is-disabled) {
+          background-color: $c-greyscale-50;
+        }
+      }
+
+      &:active:not(.is-disabled) {
+        box-shadow: inset 0 8px 8px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      .icon {
+        color: $c-greyscale-1000;
+      }
+    }
+
+    &-stroke {
+      background-color: $c-white;
+      color: $c-greyscale-1000;
+      border-color: $c-greyscale-100;
+
+      @include hover {
+        &:not(.is-disabled) {
+          background-color: $c-greyscale-50;
+        }
+      }
+
+      &:active:not(.is-disabled) {
+        background-color: $c-white;
+        box-shadow: inset 0 8px 8px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      .icon {
+        color: $c-greyscale-1000;
+      }
+    }
+
+    &-grey {
+      background-color: $c-greyscale-bg;
+      color: $c-greyscale-1000;
+
+      @include hover {
+        &:not(.is-disabled) {
+          background-color: $c-greyscale-100;
+        }
+      }
+
+      &:active:not(.is-disabled) {
+        background-color: $c-greyscale-bg;
+        box-shadow: inset 0 8px 8px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      .icon {
+        color: $c-greyscale-1000;
       }
     }
   }
@@ -61,6 +141,45 @@
       .icon {
         width: 24px;
         height: 24px;
+      }
+    }
+
+    &-l {
+      gap: 12px;
+      height: 56px;
+      padding: 0 20px;
+      border-radius: $radius-xl;
+      @include font-b-18-400;
+
+      .icon {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    &-m {
+      gap: 10px;
+      height: 48px;
+      padding: 0 16px;
+      border-radius: $radius-l;
+      @include font-b-16-400;
+
+      .icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &-s {
+      gap: 8px;
+      height: 40px;
+      padding: 0 16px;
+      border-radius: $radius-m;
+      @include font-b-16-400;
+
+      .icon {
+        width: 16px;
+        height: 16px;
       }
     }
   }

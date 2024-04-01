@@ -1,23 +1,12 @@
-"use client";
-
-import { useState } from "react";
 import Button from "@/components/ui/Button/Button";
-import TruckIcon from "@/icons/truck.svg";
-import styles from "./page.module.scss";
+import classes from "./page.module.scss";
 
 export default function Home() {
-  const [isDisabled, setIsDisabled] = useState(false);
-
   return (
-    <main className={`container ${styles.main}`}>
-      <Button
-        className={styles.button}
-        label="Button XL"
-        leftIcon={<TruckIcon />}
-        rightIcon={<TruckIcon />}
-        disabled={isDisabled}
-        onClick={() => setIsDisabled(!isDisabled)}
-      />
+    <main className={`container ${classes.main}`}>
+      <div className={classes.grid}>
+        <Button className={classes.button} label="Button page" href="/button" />
+      </div>
     </main>
   );
 }

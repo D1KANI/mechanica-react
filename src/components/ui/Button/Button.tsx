@@ -23,7 +23,7 @@ interface Props {
 export default function Button({
   label,
   href,
-  target = "_blank",
+  target = "_self",
   size = ButtonSize.XL,
   variable = ButtonVariable.ACCENT,
   className,
@@ -36,7 +36,8 @@ export default function Button({
     classes.uiButton,
     classes[`size-${size}`],
     classes[`variable-${variable}`],
-    { [classes["is-disabled"]]: disabled }
+    { [classes["is-disabled"]]: disabled },
+    className
   );
 
   const content = (
