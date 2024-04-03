@@ -42,8 +42,8 @@ export default function ButtonPage() {
           label={`Button ${options.size}`}
           size={options.size}
           variable={options.variable}
-          leftIcon={<TruckIcon />}
-          rightIcon={<TruckIcon />}
+          left-icon={<TruckIcon />}
+          right-icon={<TruckIcon />}
           disabled={options.disabled}
           onClick={() => alert("click")}
         />
@@ -54,7 +54,7 @@ export default function ButtonPage() {
           <Button
             key={size}
             label={`Change ${size}`}
-            onClick={() => changeOptions({ size: size as ButtonSize })}
+            onClick={() => changeOptions({ size: size })}
           />
         ))}
       </StyledGrid>
@@ -64,9 +64,7 @@ export default function ButtonPage() {
           <Button
             key={variable}
             label={`Change ${variable}`}
-            onClick={() =>
-              changeOptions({ variable: variable as ButtonVariable })
-            }
+            onClick={() => changeOptions({ variable: variable })}
           />
         ))}
       </StyledGrid>

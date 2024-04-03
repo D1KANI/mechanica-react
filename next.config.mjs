@@ -6,11 +6,6 @@ const nextConfig = {
     styledComponents: true,
   },
 
-  sassOptions: {
-    includePath: "@/assets/styles",
-    prependData: '@import "@/assets/styles/global.scss";',
-  },
-
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>

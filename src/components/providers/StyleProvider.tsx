@@ -12,8 +12,10 @@ export const StyleProvider = ({
 }>) => {
   return (
     <StyledComponentsRegistry>
-      <GlobalStyles />
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        {children}
+      </ThemeProvider>
     </StyledComponentsRegistry>
   );
 };

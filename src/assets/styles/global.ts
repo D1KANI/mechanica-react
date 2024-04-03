@@ -8,7 +8,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: $c-white;
+    /* background-color: ${({ theme }) => theme.colors.white}; */
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }

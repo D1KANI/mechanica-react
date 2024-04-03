@@ -1,9 +1,0 @@
-@mixin create-container($w: 100%, $mx: 100%, $pd: 80px) {
-  width: 100%;
-  max-width: $mx;
-  padding: 0 $pd;
-}
-
-.container {
-  @include create-container();
-}
