@@ -8,9 +8,17 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    /* background-color: ${({ theme }) => theme.colors.white}; */
+    background-color: ${({ theme }) => theme.colors.white};
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+  }
+
+  button, input, textarea {
+    outline: none;
+  }
+
+  a, button {
+    cursor: pointer;
   }
 
   a {

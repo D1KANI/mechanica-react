@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import { Props } from "./Button";
 import { ButtonSize, ButtonVariable } from "@/types/kit";
 
 export const StyledButton = styled.div<{

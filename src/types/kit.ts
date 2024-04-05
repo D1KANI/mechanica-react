@@ -12,3 +12,15 @@ export enum ButtonVariable {
   "STROKE" = "stroke",
   "GREY" = "grey",
 }
+
+export enum SelectSize {
+  XL = "xl",
+  L = "l",
+  m = "m",
+}
+
+export interface SelectOption {
+  value: string;
+  label?: string;
+  subLabel?: string;
+}

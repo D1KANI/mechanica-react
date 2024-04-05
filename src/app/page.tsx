@@ -2,6 +2,7 @@
 
 import styled from "styled-components";
 import { Button } from "@/components/ui/Button/Button";
+import { ButtonVariable } from "@/types/kit";
 
 const StyledGrid = styled.div`
   display: grid;
@@ -10,10 +11,30 @@ const StyledGrid = styled.div`
   padding-bottom: 20px;
 `;
 export default function Home() {
+  const buttons = [
+    {
+      label: "Button page",
+      href: "/button",
+      variable: ButtonVariable.ACCENT,
+    },
+    {
+      label: "Select page",
+      href: "/select",
+      variable: ButtonVariable.BLACK,
+    },
+  ];
+
   return (
     <main className="container">
       <StyledGrid>
-        <Button label="Button page" href="/button" />
+        {buttons.map((button) => (
+          <Button
+            key={button.href}
+            label={button.label}
+            href={button.href}
+            variable={button.variable}
+          />
+        ))}
       </StyledGrid>
     </main>
   );

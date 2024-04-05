@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { SFProDisplay } from "@/assets/styles/fonts";
 import { StyleProvider } from "@/components/providers/StyleProvider";
+import { Button } from "@/components/ui/Button/Button";
+import { ButtonSize } from "@/types/kit";
 
 export const metadata: Metadata = {
   title: "MECHANICA",
@@ -15,7 +17,10 @@ export default function RootLayout({
   return (
     <html>
       <body className={SFProDisplay.className}>
-        <StyleProvider>{children}</StyleProvider>
+        <StyleProvider>
+          <Button label="Главная" href="/" size={ButtonSize.S} />
+          {children}
+        </StyleProvider>
       </body>
     </html>
   );

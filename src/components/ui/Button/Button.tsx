@@ -4,12 +4,13 @@ import { ButtonSize, ButtonVariable } from "@/types/kit";
 import Link from "next/link";
 
 import { StyledButton } from "./StyledButton";
+import type { Route } from "next";
 
-export interface Props {
+export interface Props<T extends string> {
   label: string;
   "left-icon"?: React.ReactNode;
   "right-icon"?: React.ReactNode;
-  href?: string;
+  href?: Route<T> | URL;
   target?: "_self" | "_blank";
   size?: ButtonSize;
   variable?: ButtonVariable;
@@ -18,11 +19,11 @@ export interface Props {
   onClick?: () => void;
 }
 
-export const Button = ({
+export const Button = <T extends string>({
   variable = ButtonVariable.ACCENT,
   size = ButtonSize.XL,
   ...props
-}: Props) => {
+}: Props<T>) => {
   return (
     <StyledButton
       as={props.href ? Link : "button"}

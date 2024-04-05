@@ -6,6 +6,10 @@ const nextConfig = {
     styledComponents: true,
   },
 
+  experimental: {
+    typedRoutes: true,
+  },
+
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
