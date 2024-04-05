@@ -3,6 +3,7 @@
 import styled from "styled-components";
 import { Button } from "@/components/ui/Button/Button";
 import { ButtonVariable } from "@/types/kit";
+import type { Route } from "next";
 
 const StyledGrid = styled.div`
   display: grid;
@@ -10,8 +11,15 @@ const StyledGrid = styled.div`
   padding-top: 20px;
   padding-bottom: 20px;
 `;
+
+interface Buttons {
+  label: string;
+  href: URL | Route<string> | undefined;
+  variable: ButtonVariable;
+}
+
 export default function Home() {
-  const buttons = [
+  const buttons: Buttons[] = [
     {
       label: "Button page",
       href: "/button",
@@ -29,7 +37,7 @@ export default function Home() {
       <StyledGrid>
         {buttons.map((button) => (
           <Button
-            key={button.href}
+            key={button.label}
             label={button.label}
             href={button.href}
             variable={button.variable}
