@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { SFProDisplay } from "./fonts";
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -8,13 +9,15 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: ${({ theme }) => theme.colors.white};
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    background-color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors["greyscale-1000"]};
   }
 
   button, input, textarea {
     outline: none;
+    ${SFProDisplay.style}
   }
 
   a, button {

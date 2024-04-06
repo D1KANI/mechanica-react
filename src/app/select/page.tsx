@@ -4,6 +4,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { SelectOption } from "@/types/kit";
 import { Select } from "@/components/ui/Select/Select";
+import TruckIcon from "@/assets/icons/truck.svg";
 
 const StyledGrid = styled.div`
   display: grid;
@@ -15,19 +16,20 @@ const StyledGrid = styled.div`
 export default function SelectPage() {
   const selectData: SelectOption[] = [
     {
-      value: "Вариант 1",
-      label: "Вариант 1",
+      value: "value + label",
+      label: "value + label",
     },
     {
-      value: "Вариант 2",
-      label: "Вариант 2",
+      value: "value only",
     },
     {
-      value: "Вариант 3",
-      label: "Вариант 3",
+      value: "full",
+      label: "full",
+      subLabel: "variant",
+      icon: TruckIcon,
     },
   ];
-  const [currentSelect, setCurrentSelect] = useState(selectData[0].value);
+  const [currentSelect, setCurrentSelect] = useState<string>();
 
   return (
     <main className="container">
@@ -36,6 +38,8 @@ export default function SelectPage() {
           list={selectData}
           value={currentSelect}
           onChange={setCurrentSelect}
+          label="Test"
+          secondLabel="second"
         />
       </StyledGrid>
     </main>

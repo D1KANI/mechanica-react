@@ -12,18 +12,14 @@ type cssReturnType = Interpolation<
 
 declare module "styled-components" {
   export interface DefaultTheme {
-    colors: Record<keyof typeof colors, string>;
+    colors: typeof colors;
 
-    radius: Record<keyof typeof radius, string>;
+    radius: typeof radius;
 
     text: Record<keyof typeof text, cssReturnType>;
 
     utils: {
-      transition: (
-        property: string[],
-        duration?: string,
-        fn?: string
-      ) => string;
+      transition: (property: string, duration?: string, fn?: string) => string;
     };
   }
 }

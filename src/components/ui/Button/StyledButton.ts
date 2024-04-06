@@ -14,7 +14,7 @@ export const StyledButton = styled.div<{
   cursor: pointer;
   white-space: nowrap;
   ${({ theme }) =>
-    theme.utils.transition(["background", "box-shadow", "border-color"])}
+    theme.utils.transition("background, box-shadow, border-color")}
 
   .icon {
     flex-shrink: 0;

@@ -1,3 +1,5 @@
+import { FC, SVGProps } from "react";
+
 export enum ButtonSize {
   "XL" = "xl",
   "L" = "l",
@@ -23,4 +25,5 @@ export interface SelectOption {
   value: string;
   label?: string;
   subLabel?: string;
+  icon?: FC<SVGProps<SVGElement>>;
 }
